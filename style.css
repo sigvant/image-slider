@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 40px;
+    font-family: 'monospace', 'Courier New';
+    color: white;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.slider {
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    transform: translateX(100%);
+}
+
+.slide.active {
+    transform: translateX(0%);
+    z-index: 3;
+}
+
+.slide::after {
+    contain: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.692);
+    z-index: -1;
+}
+
+.slide-1 {
+    background-image: url(./pics/pic1.jpg);
+}
+
+.slide-2 {
+    background-image: url(./pics/pic2.jpg);
+}
+
+.slide-3 {
+    background-image: url(./pics/pic3.jpg);
+}
+
+.slide-4 {
+    background-image: url(./pics/pic4.jpg);
+}
+
+.slide-5 {
+    background-image: url(./pics/pic5.jpg);
+}
+
+.slide-6 {
+    background-image: url(./pics/pic6.jpg);
+}
+
+/* buttons style */
+
+.buttons {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    color: black;
+    display: flex;
+    flex-direction: row-reverse;
+    width: auto;
+    font-size: 40px;
+
+}
+
+.buttons div {
+    cursor: pointer;
+    pointer-events: all;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.buttons div:hover {
+    background-color: white;
+}
+
+.slide.top {
+    transition: .3s ease transform;
+    z-index: 3;
+}
+
+.dots { 
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dots .dot {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    transition: .3s ease width;
+}
+
+.dots .dot.active {
+    background-color: white;
+    width: 40px;
+}
+
+@media (max-width: 768px) {
+    .dots {
+        left: 0;
+        transform: translateX(0);
+    }
+}
